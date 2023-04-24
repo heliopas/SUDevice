@@ -4,26 +4,26 @@ from colorama import Fore, Back, Style
 from time import sleep
 import files.var.globalVar as globalVar
 
-global comMeterWT210
-comMeterWT210 = globalVar.comPORT
+global comSUCP2102
+comSUCP2102 = globalVar.comPORT
 
-def openportMeterWT210():
-    global comportMeterWT210
+def openportSUCP2102():
+    global comportSUCP2102
     try:
-        comportMeterWT210 = serial.Serial(port=comMeterWT210, baudrate=9600, timeout=2, stopbits=serial.STOPBITS_ONE)
+        comportSUCP2102 = serial.Serial(port=comSUCP2102, baudrate=9600, timeout=2, stopbits=serial.STOPBITS_ONE)
     except serial.SerialException as e:
         logging.error("Error during open port MeterWT210: %s" % e)
 
-def closeportMeterWT210():
-    global comportMeterWT210
-    comportMeterWT210.close()
+def closeportSUCP2102():
+    global comportSUCP2102
+    comportSUCP2102.close()
 
-def sedDataReadMeterWT210(param1):
-    openportMeterWT210()
-    global comportMeterWT210
+def sedDataReadSUCP2102(param1):
+    openportSUCP2102()
+    global comportSUCP2102
     try:
-        comportMeterWT210.write(param1.encode())
-        comportMeterWT210.write(b'\r\n')
+        comportSUCP2102.write(param1.encode())
+        comportSUCP2102.write(b'\r\n')
     except serial.SerialException as e:
         logging.error("Error during read data MeterWT210: %s" % e)
-    closeportMeterWT210()
+    closeportSUCP2102()

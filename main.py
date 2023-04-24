@@ -1,4 +1,4 @@
-import skinApp
+import serialLayer
 
 if __name__ == "__main__":
- skinApp.drawApp()
+ serialLayer.openportSUCP2102()
