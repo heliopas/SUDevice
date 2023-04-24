@@ -2,7 +2,6 @@ import serial
 import errno
 from colorama import Fore, Back, Style
 from time import sleep
-import files.var.globalVar as globalVar
 
 global comSUCP2102
 comSUCP2102 = '/dev/ttyUSB0'
